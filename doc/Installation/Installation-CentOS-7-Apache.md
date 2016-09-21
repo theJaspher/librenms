@@ -110,6 +110,12 @@ Add the following config:
 service httpd restart
 ```
 
+#### Open port 80
+```
+firewall-cmd --zone=public --add-port=80/tcp --permanent
+firewall-cmd --reload
+```
+
 #### Web installer
 
 Now head to: http://librenms.example.com/install.php and follow the on-screen instructions.
@@ -143,6 +149,7 @@ service snmpd restart
 chown -R librenms:librenms /opt/librenms
 systemctl enable httpd
 systemctl enable mariadb
+systemctl enable snmpd
 ```
 
 Run validate.php as root in the librenms directory:
